@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4000/authors/jill.html</loc>
+<lastmod>2026-05-17T15:01:26-05:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/authors/tye.html</loc>
+<lastmod>2026-05-17T15:01:26-05:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2026/04/01/aprilfools.html</loc>
+<lastmod>2026-04-01T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2026/05/05/setup.html</loc>
+<lastmod>2026-05-05T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/about.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/blog.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/staff.html</loc>
+</url>
+</urlset>

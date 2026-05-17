@@ -1,0 +1,7 @@
+---
+---
+// see this for more information on deprecated import statements
+// https://sass-lang.com/documentation/breaking-changes/import/
+@import "main";
+@import "{{ site.theme }}";
+

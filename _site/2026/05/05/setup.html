@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Setup</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="github.io" />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Setup | github.io</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Setup" />
+<meta name="author" content="tye" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="After going through many job applications (so… many…) I have decided that I really need to bite the bullet and actually put out a personal site." />
+<meta property="og:description" content="After going through many job applications (so… many…) I have decided that I really need to bite the bullet and actually put out a personal site." />
+<link rel="canonical" href="http://localhost:4000/2026/05/05/setup.html" />
+<meta property="og:url" content="http://localhost:4000/2026/05/05/setup.html" />
+<meta property="og:site_name" content="github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-05-05T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Setup" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tye"},"dateModified":"2026-05-05T00:00:00-05:00","datePublished":"2026-05-05T00:00:00-05:00","description":"After going through many job applications (so… many…) I have decided that I really need to bite the bullet and actually put out a personal site.","headline":"Setup","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2026/05/05/setup.html"},"url":"http://localhost:4000/2026/05/05/setup.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <body>
+    <nav>
+  
+    <a href="/">Home</a>
+  
+    <a href="/about.html">About</a>
+  
+    <a href="/blog.html">Blog</a>
+  
+    <a href="/staff.html">Staff</a>
+  
+</nav>
+    <h1>Setup</h1>
+
+<p>
+  05 May 2026
+  
+  
+    - <a href="/authors/tye.html">Tye H</a>
+  
+</p>
+
+<p>After going through many job applications (so… many…) I have decided that I really need to bite the bullet and actually put out a personal site.</p>
+
+<p>After a bit of research, it became clear that starting simple with <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">GitHub Pages</a> and adding a slight optimization would be the best weekend-friendly approach. The small optimization I am targeting is using <a href="https://jekyllrb.com/">Jekyll</a>as the static site generator.</p>
+
+<p>I know very little about Jekyll or Ruby or Gems for that matter so this will be a good introduction to these technologies as well. This file will serve as my notes for getting the site up and running so that future-me can coherently explain what and how I did it.</p>
+
+<h2 id="github-pages">GitHub Pages</h2>
+
+<p>I’m starting with <a href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll">this guide</a> for creating a static landing page.</p>
+
+<p>The first thing this guide recommends is to make sure Git and Jekyll are installed so I’ll be jumping to  that section for a minute…</p>
+
+<h2 id="jekyll-on-macos">Jekyll on macOS</h2>
+
+<p><a href="https://jekyllrb.com/docs/installation/macos/">Starting Here</a>I’m going to make sure a new version of Ruby is installed. Apparently, macOS ships with a version of Ruby but docs recommend installing a new version and pointing your local machine’s PATH to it.</p>
+
+<p>I already have homebrew installed on my mac so I will be jumping to step 2 to install <code class="language-plaintext highlighter-rouge">chruby</code> and <code class="language-plaintext highlighter-rouge">ruby-install</code> with</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">brew install chruby ruby-install
+</span></code></pre></div></div>
+<p>Now we install the latest Jekyll-supported version on Ruby (at the time of this writing is version 3.4.1)</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">ruby-install ruby 3.4.1
+</span></code></pre></div></div>
+<p>Next is configuring your shell to automatically use <code class="language-plaintext highlighter-rouge">chruby</code>:</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">echo "source $</span><span class="o">(</span>brew <span class="nt">--prefix</span><span class="o">)</span>/opt/chruby/share/chruby/chruby.sh<span class="s2">" &gt;&gt; ~/.zshrc
+</span><span class="gp">echo "source $</span><span class="s2">(brew --prefix)/opt/chruby/share/chruby/auto.sh"</span> <span class="o">&gt;&gt;</span> ~/.zshrc
+<span class="gp">echo "chruby ruby-3.4.1" &gt;</span><span class="o">&gt;</span> ~/.zshrc <span class="c"># run 'chruby' to see actual version</span>
+</code></pre></div></div>
+<p>The doc recommends reading an article about switching between ruby versions. That’s not super important for me right now.</p>
+
+<p>Next we just install <code class="language-plaintext highlighter-rouge">jekyll</code> with:</p>
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">gem install jekyll
+</span></code></pre></div></div>
+
+<h3 id="creating-a-site">Creating a Site</h3>
+
+<p>Now that we’ve got the install up and running, I’ve cloned an empty repository from my GitHub, according to GitHub Page’s docs, the repo needs to be named github.io to be able to be picked up by whatever magic happens to create a site.</p>
+
+<h2 id="issues-and-rabbit-holes">Issues and Rabbit Holes</h2>
+
+<p>Here are the main issues I ran into while setting this up. Maybe it’ll help with future setup.</p>
+<h3 id="the-zsh-and-zprofile-rabbit-hole">The .zsh and .zprofile Rabbit Hole</h3>
+
+<p>I kept running into an issue installing chruby where whenever I opened the terminal I would see an error:</p>
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">eval):1: parse error near `)' 
+</span></code></pre></div></div>
+<p>This error appeared after each login and after ~20 minutes of troubleshooting, I found that the issue was caused by my <code class="language-plaintext highlighter-rouge">homebrew</code> installation. I had already installed it prior to this and what I found was that I must have made a mistake in the original install. In my <code class="language-plaintext highlighter-rouge">.zprofile</code> file I had two lines that looked like this:</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">...
+</span><span class="gp">eval "$</span>/opt/homebrew/bin/brew shellenv zsh<span class="o">)</span><span class="s2">"
+</span><span class="go">
+</span><span class="gp">eval "$</span><span class="o">(</span>/opt/homebrew/bin/brew shellenv zsh<span class="o">)</span><span class="s2">"
+</span><span class="c">...
+</span></code></pre></div></div>
+<p>Spot the difference? In the first line, I forgot an opening parenthesis. My best guess, knowing how I roll, is that I ran the incorrect command to add <code class="language-plaintext highlighter-rouge">brew</code> to my <code class="language-plaintext highlighter-rouge">.zprofile</code> and when the check command (probably running <code class="language-plaintext highlighter-rouge">brew</code> in the terminal) didn’t work, I ran the previous command again, this time correctly. Essentially, I had 2 of these eval commands and the first one was causing an error. <a href="https://www.reddit.com/r/learnprogramming/comments/15rd58v/zsh_error_parse_error_near_when_downloading/">This Reddit Post</a> tipped me off to look in the <code class="language-plaintext highlighter-rouge">.zprofile</code> after going in circles with the the <code class="language-plaintext highlighter-rouge">.zsh</code> file as well.</p>
+
+<h3 id="sass-import-is-being-deprecated">Sass @import is being deprecated</h3>
+
+<p>I spent a lot of time on this one. I am running agent-less VS Code (I know, old school right?) for this setup mostly because I want to understand it, not have AI understand it for me. I’ve used Sass frequently in the past. Given that when we installed Jekyll, it also installed the version of Sass its dependent on, I’ve decided there isn’t much I can do about it other than clock the issues here and google it later when it breaks. Or maybe use an AI agent to fix it. We’ll see.</p>
+
+<p>Anyway Sass’s <code class="language-plaintext highlighter-rouge">@import</code> statement highlights red in VS code. Maybe its something to do with the deprecation warning I’m reading about <a href="https://sass-lang.com/documentation/breaking-changes/import/">here</a> or it could be that my VS Code setup is missing a better intellisense solution. Definitely not getting into that here.</p>
+
+  </body>
+</html>
