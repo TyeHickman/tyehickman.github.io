@@ -1,5 +1,8 @@
 ---
-author: jill
+title: An April Fools Apple
+summary: A small piece of setup-era placeholder writing retained as part of the site's history.
+pathways:
+  - creative-practice
 ---
 An apple is a sweet, edible fruit produced by an apple tree.
 

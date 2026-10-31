@@ -1,14 +1,23 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0d0912">
+    <link rel="stylesheet" href="{{ '/assets/css/vendor/grimmoire.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
     {% feed_meta %}
     {% seo %}
   </head>
   <body>
-    {% include nav.html %}
-    {{ content }}
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        {% include nav.html %}
+      </div>
+    </header>
+    <main id="main-content" class="page-content" tabindex="-1">{{ content }}</main>
+    {% include footer.html %}
   </body>
 </html>

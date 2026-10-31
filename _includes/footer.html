@@ -1,0 +1,10 @@
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ site.title }}</p>
+    <nav aria-label="Footer navigation">
+      {% for item in site.data.footer %}
+        <a href="{{ item.link | relative_url }}">{{ item.name }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</footer>

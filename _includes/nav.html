@@ -1,5 +1,11 @@
-<nav>
+<nav class="site-nav" aria-label="Primary navigation">
   {% for item in site.data.nav %}
-    <a href="{{ item.link }}"{% if page.url == item.link %} class="current"{% endif %}>{{ item.name }}</a>
+    {% assign nav_current = false %}
+    {% if item.link == '/' and page.url == '/' %}
+      {% assign nav_current = true %}
+    {% elsif item.link != '/' and page.url contains item.link %}
+      {% assign nav_current = true %}
+    {% endif %}
+    <a href="{{ item.link | relative_url }}"{% if nav_current %} class="current" aria-current="page"{% endif %}>{{ item.name }}</a>
   {% endfor %}
 </nav>

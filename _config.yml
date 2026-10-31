@@ -1,18 +1,31 @@
+title: Tye Hickman
+description: Notes, projects, and stories from an engineer, builder, and writer.
+url: "https://tyehickman.github.io"
+
 collections:
-  authors:
+  projects:
     output: true
+    permalink: /projects/:name/
+  stories:
+    output: true
+    permalink: /stories/:name/
 
 defaults:
-  - scope:
-      path: ""
-      type: "authors"
-    values:
-      layout: "author"
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+      type: "stories"
+    values:
+      layout: "story"
   - scope:
       path: ""
     values:
@@ -22,7 +35,3 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-remote-theme
-
-# remote_theme: pages-themes/midnight@v0.2.0
-remote_theme: pages-themes/hacker@v0.2.0

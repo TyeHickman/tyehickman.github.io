@@ -1,0 +1,19 @@
+{% if include.notes.size > 0 %}
+<ol class="note-list">
+  {% for post in include.notes %}
+    <li>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+      <div>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        {% if post.summary %}
+          <p>{{ post.summary }}</p>
+        {% else %}
+          <p>{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
+        {% endif %}
+      </div>
+    </li>
+  {% endfor %}
+</ol>
+{% else %}
+  <p class="empty-state">No notes are published yet.</p>
+{% endif %}

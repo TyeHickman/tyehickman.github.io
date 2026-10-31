@@ -1,0 +1,24 @@
+---
+layout: default
+title: Stories
+permalink: /stories/
+---
+<header class="page-header prose">
+  <p class="eyebrow">Creative work</p>
+  <h1>Stories</h1>
+  <p class="lede">Fiction and other work meant to be read first as creative work.</p>
+</header>
+
+{% if site.stories.size > 0 %}
+  <div class="card-grid">
+    {% for story in site.stories %}
+      <article class="project-card">
+        {% if story.form %}<p class="card-meta">{{ story.form }}</p>{% endif %}
+        <h2><a href="{{ story.url | relative_url }}">{{ story.title }}</a></h2>
+        <p>{{ story.summary }}</p>
+      </article>
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="empty-state">This shelf is intentionally quiet for now. Public stories will appear here when they are ready.</p>
+{% endif %}

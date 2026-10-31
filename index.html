@@ -2,4 +2,49 @@
 layout: default
 title: Tye Hickman
 ---
-<h1>{{page.title}}</h1>
+<section class="hero">
+  <p class="eyebrow">Engineer · builder · writer</p>
+  <h1>I make systems, tools, and stories.</h1>
+  <p class="lede">This is a working map of my software engineering, game development, hobby robotics, and creative writing.</p>
+</section>
+
+<section class="pathways" aria-labelledby="pathways-heading">
+  <h2 id="pathways-heading">Choose a path</h2>
+  <div class="card-grid card-grid--three">
+    <a class="pathway-card" href="{{ '/notes/' | relative_url }}">
+      <span class="eyebrow">Thinking</span>
+      <h3>Notes</h3>
+      <p>Technical field notes, retrospectives, and essays about process.</p>
+    </a>
+    <a class="pathway-card" href="{{ '/projects/' | relative_url }}">
+      <span class="eyebrow">Building</span>
+      <h3>Projects</h3>
+      <p>Software, games, robotics, tools, and experiments.</p>
+    </a>
+    <a class="pathway-card" href="{{ '/stories/' | relative_url }}">
+      <span class="eyebrow">Imagining</span>
+      <h3>Stories</h3>
+      <p>Fiction and other work intended to be read as creative work.</p>
+    </a>
+  </div>
+</section>
+
+<section aria-labelledby="recent-notes-heading">
+  <div class="section-heading">
+    <h2 id="recent-notes-heading">Recent notes</h2>
+    <a href="{{ '/notes/' | relative_url }}">All notes</a>
+  </div>
+  {% assign recent_notes = site.posts | slice: 0, 3 %}
+  {% include note-list.html notes=recent_notes %}
+</section>
+
+{% assign featured_projects = site.projects | where: 'featured', true %}
+{% if featured_projects.size > 0 %}
+<section aria-labelledby="selected-projects-heading">
+  <div class="section-heading">
+    <h2 id="selected-projects-heading">Selected projects</h2>
+    <a href="{{ '/projects/' | relative_url }}">All projects</a>
+  </div>
+  {% include project-grid.html projects=featured_projects %}
+</section>
+{% endif %}

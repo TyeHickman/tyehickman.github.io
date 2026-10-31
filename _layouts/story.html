@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<article class="prose">
+  <header class="page-header">
+    <p class="eyebrow"><a href="{{ '/stories/' | relative_url }}">Stories</a>{% if page.form %} · {{ page.form }}{% endif %}</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
+    {% if page.content_warnings %}<p class="page-meta">Content note: {{ page.content_warnings | join: ", " }}</p>{% endif %}
+  </header>
+  {{ content }}
+</article>

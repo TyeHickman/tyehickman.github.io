@@ -1,0 +1,6 @@
+- name: About
+  link: /about/
+- name: Notes feed
+  link: /feed.xml
+- name: GitHub
+  link: https://github.com/TyeHickman

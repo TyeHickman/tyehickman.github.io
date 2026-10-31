@@ -1,0 +1,13 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+<header class="page-header prose">
+  <p class="eyebrow">Built work</p>
+  <h1>Projects</h1>
+  <p class="lede">Software, games, robotics, tools, and experiments—organized around their constraints and lessons rather than case-study theater.</p>
+</header>
+
+{% assign sorted_projects = site.projects | sort: 'title' %}
+{% include project-grid.html projects=sorted_projects %}

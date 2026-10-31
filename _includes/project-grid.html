@@ -1,0 +1,13 @@
+{% if include.projects.size > 0 %}
+<div class="card-grid">
+  {% for project in include.projects %}
+    <article class="project-card">
+      <p class="card-meta">{{ project.status | capitalize }}{% if project.pathways %} · {{ project.pathways | join: ", " }}{% endif %}</p>
+      <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+      <p>{{ project.summary }}</p>
+    </article>
+  {% endfor %}
+</div>
+{% else %}
+  <p class="empty-state">Project write-ups are being prepared.</p>
+{% endif %}
